@@ -38,22 +38,35 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      const response = await authService.login({
-        email: data.email,
-        password: data.password,
-      });
-      setAuth(response.user, response.access_token);
-      navigate('/clients');
-    } catch (err: unknown) {
-  let message = 'Login failed. Please try again.';
+      const response =await authService.login({
+        email : data.email,
+        password : data.password,
+        
+      })
 
-  if (axios.isAxiosError(err)) {
-    message = err.response?.data?.message ?? message;
+      // Handle NextShop API response: {success, message, data: {token, permissions}}
+      if(response.success && response.data?.token){
+        // Store user info from email since API doesn't return user object
+        const user = { id : "", name : data.email, email : data.email}
+        setAuth(user, response.data.token)
+        navigate("/clients")
+
+      }
+      else{
+        setError(response.message || "Login failed")
+      }
+}catch(err : unknown){
+if (axios.isAxiosError(err)) {
+    const message = err.response?.data?.message || "Login failed";
+    console.log(message);
+    setError(message);
+  } else {
+    console.log("Unexpected error", err);
+    setError("Something went wrong");
   }
-
-  setError(message);
-}finally {
-      setIsLoading(false);
+}
+finally {
+      setIsLoading(false)
     }
   };
 

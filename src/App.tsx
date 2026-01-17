@@ -11,8 +11,13 @@ import { TooltipProvider } from "./components/ui/tooltip";
 import { Sonner } from "./components/ui/sonner";
 import { useAuthStore } from "./store/authStore";
 import { useEffect } from "react";
-import Login from "./pages/login";
+
 import Clients from "./pages/Client";
+import GlobalLoadingIndicator from "./components/GlobalIndicator";
+import Login from "./pages/Login";
+import About from "./pages/About";
+import Services from "./pages/Services";
+import Contact from "./pages/Contact";
 
 // const queryClient = new QueryClient({
 //   defaultOptions: {
@@ -40,6 +45,7 @@ import Clients from "./pages/Client";
 // );
 
 // export default App;
+
 
 
 
@@ -75,6 +81,9 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<Index />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/services" element={<Services />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
       <Route
         path="/clients"
         element={
@@ -92,6 +101,7 @@ const AppRoutes = () => {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <GlobalLoadingIndicator />
       <Toaster />
       <Sonner />
       <BrowserRouter>
