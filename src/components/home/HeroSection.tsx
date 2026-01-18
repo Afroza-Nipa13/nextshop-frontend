@@ -1,67 +1,59 @@
 
-import { ArrowRight, Sparkles } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Instagram, Facebook, Linkedin } from "lucide-react";
 import { Button } from "../ui/button";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium">
-            <Sparkles className="w-4 h-4" />
-            Welcome to NextShop
+    <section className="container mx-auto px-4 py-8">
+      <div className="relative rounded-[2.5rem] overflow-hidden bg-muted animate-fade-in">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-12 p-6 md:p-12 lg:p-16">
+          {/* Left side - Image */}
+          <div className="relative aspect-[4/3] md:aspect-auto rounded-[2rem] overflow-hidden animate-scale-in">
+            <img
+              src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=1920&q=80"
+              alt="Hero"
+              className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+            />
           </div>
 
-          {/* Main heading */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
-            Discover Amazing
-            <span className="block bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text text-transparent">
-              Services & Solutions
-            </span>
-          </h1>
-
-          {/* Subtitle */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Explore our curated collection of premium services designed to elevate your experience. Quality, innovation, and excellence in every offering.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Button size="lg" className="group px-8 py-6 text-lg" asChild>
-              <Link to="/services">
-                Explore Services
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" className="px-8 py-6 text-lg" asChild>
-              <Link to="/about">
-                Learn More
-              </Link>
-            </Button>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 pt-12 max-w-lg mx-auto">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-foreground">50+</div>
-              <div className="text-sm text-muted-foreground">Services</div>
+          {/* Right side - Content */}
+          <div className="flex flex-col justify-center space-y-6 md:space-y-8">
+            <div className="space-y-4 md:space-y-6">
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-foreground">
+                Journey Through Life's Spectrum
+              </h1>
+              <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-xl">
+                Welcome to NextShop: A Realm of Premium Services and Solutions. Where Innovation Meets Excellence and Quality Defines Every Experience.
+              </p>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-foreground">10K+</div>
-              <div className="text-sm text-muted-foreground">Customers</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-foreground">99%</div>
-              <div className="text-sm text-muted-foreground">Satisfaction</div>
+
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-6 pt-4">
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-4 md:px-10 md:py-6 text-base font-medium transition-all hover:scale-105 w-full sm:w-auto">
+                Join Now
+              </Button>
+              <div className="flex items-center gap-4">
+                <a
+                  href="#instagram"
+                  className="w-12 h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a
+                  href="#facebook"
+                  className="w-12 h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a
+                  href="#linkedin"
+                  className="w-12 h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
